@@ -21,6 +21,7 @@ def client_handler(client,addr):
             print('OUT : ', client)
             break
         msg = str(addr) + '>>> ' + data.decode('utf-8')
+        server.sendall(msg.encode('utf-8'))
         print('USER: ', msg)
         print('-----------')
         
