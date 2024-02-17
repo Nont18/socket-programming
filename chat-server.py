@@ -6,7 +6,19 @@ PORT = 7500
 BUFSIZE = 4096
 SERVERIP = '192.168.1.38' #your ip
 
+client_list_lock = threading.Lock()
 clist = [] #client list
+
+
+def broadcast(message, sender_client):
+    with client_list_lock:
+        for client in clist:
+            # Send the message to all clients except the sender
+            if client != sender_client:
+                try:
+                    client.sendall(message.encode('utf-8'))
+                except Exception as e:
+                    print(f"Error broadcasting message: {e}")
 
 def client_handler(client,addr):
     while True:
@@ -22,6 +34,7 @@ def client_handler(client,addr):
             break
         msg = str(addr) + '>>> ' + data.decode('utf-8')
         client.sendall(msg.encode('utf-8'))
+        broadcast(f"USER : ", client)
         print('USER: ', msg)
         print('-----------')
         
