@@ -4,7 +4,7 @@ import sys
 
 PORT = 7500
 BUFSIZE = 4096
-SERVERIP = 'localhost' #server ip
+SERVERIP = '192.168.1.38' #server ip
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR,1)
@@ -35,9 +35,14 @@ except:
 task = threading.Thread(target=server_handler, args=(client,))
 task.start()
 
+
+username = input("Enter your username: ")
+client.sendall(username.encode('utf-8'))
+
 while True:
     msg = input('Message: ')
-    client.sendall(msg.encode('utf-8'))
+    client.sendall((username + ':' + msg).encode('utf-8'))
+    # client.sendall(msg.encode('utf-8'))
     if msg == 'q':
         break
 client.close()

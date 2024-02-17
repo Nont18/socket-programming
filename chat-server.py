@@ -4,7 +4,7 @@ import threading
 
 PORT = 7500
 BUFSIZE = 4096
-SERVERIP = 'localhost' #your ip
+SERVERIP = '192.168.1.38' #your ip
 
 clist = [] #client list
 
@@ -35,7 +35,6 @@ while True:
     client, addr = server.accept()
     clist.append(client)
     print('ALL CLIENT: ', clist)
-    
     task = threading.Thread(target=client_handler, args=(client, addr))
     task.start()
     
