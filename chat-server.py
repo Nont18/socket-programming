@@ -34,7 +34,7 @@ def client_handler(client,addr):
             break
         msg = str(addr) + '>>> ' + data.decode('utf-8')
         client.sendall(msg.encode('utf-8'))
-        broadcast(f"USER : ", client)
+        broadcast(msg, client)
         print('USER: ', msg)
         print('-----------')
         
