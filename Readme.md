@@ -7,3 +7,6 @@
 5. run 'python chat-client.py'
 
 note : the code perform well if there have more than 2 client.
+
+
+![Getting Started](computer network.PNG)
