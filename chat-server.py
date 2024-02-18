@@ -4,7 +4,7 @@ import threading
 
 PORT = 7500
 BUFSIZE = 4096
-SERVERIP = '192.168.1.38' #your ip
+SERVERIP = 'localhost' #your ip
 
 client_list_lock = threading.Lock()
 clist = [] #client list

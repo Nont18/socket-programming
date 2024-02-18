@@ -4,7 +4,7 @@ import sys
 
 PORT = 7500
 BUFSIZE = 4096
-SERVERIP = '192.168.1.38' #server ip
+SERVERIP = 'localhost' #server ip
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR,1)
