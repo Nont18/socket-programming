@@ -8,5 +8,4 @@
 
 note : the code perform well if there have more than 2 client.
 
-
-![Getting Started](socket2024/computer network.PNG)
+![alt text](<computer network.PNG>)
