@@ -41,7 +41,7 @@ def client_handler(client,addr):
     client.close()
     
     
-server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #use TCP
 server.bind((SERVERIP, PORT))
 server.listen(5)
 
